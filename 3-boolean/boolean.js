@@ -119,3 +119,96 @@ function testGreaterThan(val) {
   }
   
   testLessOrEqual(10);
+
+//Sometimes you will need to test more than one thing at a time. The logical and operator (&&) returns true if and only if the operands to the left and right of it are true.
+
+//The same effect could be achieved by nesting an if statement inside another if.********
+
+function testLogic(num) {
+if (num > 5) {
+  if (num < 10) {
+    return "Yes";
+  }
+
+return "No";
+}
+}
+//This code will return Yes if num is greater than 5 and less than 10. The same logic can be written with the logical and operator:
+
+
+function testLogical(val) {
+if (val > 5 && val < 10) {
+  return "Yes";
+}
+return "No";
+}
+
+/*The logical or operator (||) returns true if either of the operands is true. Otherwise, it returns false.
+
+The logical or operator is composed of two pipe symbols: (||). This can typically be found between your Backspace and Enter keys.
+
+The pattern below should look familiar from prior waypoints.*/
+
+if (num > 10) {
+  return "No";
+}
+if (num < 5) {
+  return "No";
+}
+return "Yes";
+
+//This code will return Yes if num is between 5 and 10 (5 and 10 included). The same logic can be written with the logical or operator:
+
+if (num > 10 || num < 5) {
+  return "No";
+}
+return "Yes";
+
+/*Combine the two if statements into one statement which returns the string Outside if val is not between 10 and 20, inclusive. Otherwise, return the string Inside.*/
+function testLogicalOr(val) {
+    if (val < 10 || val > 20) {
+      return "Outside";
+    }
+
+    return "Inside";
+  }
+  
+  testLogicalOr(15);
+
+
+/*When a condition for an if statement is true, the block of code following it is executed. 
+What about when that condition is false? Normally nothing would happen. With an else statement, an alternate block of code can be executed. */
+// Order matter when using if/else statements as if the first condition is true, the second condition will not be checked. So, it is better to put the condition that is more likely to be true first to avoid unnecessary checks.
+
+//Combine the if statements into a single if/else statement: 
+function testElseIf(val) {
+    if (val > 10) {
+      return "Greater than 10";
+    }
+  
+    else if (val < 5) {
+      return "Smaller than 5";
+    }
+    
+    else { 
+      return "Between 5 and 10";
+  }
+  }
+  
+//if/else statements can be chained together for complex logic:
+function testSize(num) {
+    if (num < 5) {
+      return "Tiny";
+    } else if (num < 10) {
+      return "Small";
+    } else if (num < 15) {
+      return "Medium";
+    } else if (num < 20) {
+      return "Large";
+    } else {
+      return "Huge";
+    }
+  }
+  
+  testSize(7); // Output: "Small"
+  
