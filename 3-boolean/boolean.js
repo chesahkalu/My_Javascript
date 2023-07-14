@@ -1,3 +1,4 @@
+
 /*if statements are used to make decisions in code. The keyword if tells JavaScript to execute the code in the curly braces under certain conditions,
 defined in the parentheses. These conditions are known as Boolean conditions and they may only be true or false.
 
@@ -46,3 +47,75 @@ the strict equality operator does not perform a type conversion. If the values b
 
 typeof 3
 typeof '3'
+
+/*The inequality operator (!=) is the opposite of the equality operator. It means not equal and returns false where equality would return true and vice versa.
+Like the equality operator, the inequality operator will convert data types of values while comparing.*/
+
+Examples
+
+1 !=  2    // true
+1 != "1"   // false
+1 != '1'   // false
+1 != true  // false
+0 != false // false
+
+function testNotEqual(val) {
+    if (val != 99) {
+      return "Not Equal";
+    }
+    return "Equal";
+  }
+  
+  testNotEqual(10);
+
+//Strict inequality (!==) is the logical opposite of the strict equality operator. It means "Strictly Not Equal" and returns false where strict equality would return true and vice versa, and would not convert data types while comparing.
+
+/*The greater than operator (>) compares the values of two numbers. If the number to the left is greater than the number to the right, it returns true. Otherwise, it returns false.
+
+Like the equality operator, the greater than operator will convert data types of values while comparing.*/
+
+5   >  3  // true
+7   > '3' // true
+2   >  3  // false
+'1' >  9  // false
+
+function testGreaterThan(val) {
+    if (val > 100) { 
+      return "Over 100";
+    }
+  
+    if (val > 10) { 
+      return "Over 10";
+    }
+  
+    return "10 or Under";
+  }
+  
+  testGreaterThan(10);
+
+  /*The greater than or equal to operator (>=) compares the values of two numbers. If the number to the left is greater than or equal to the number to the right, */
+
+6   >=  6  // true
+7   >= '3' // true
+2   >=  3  // false
+'7' >=  9  // false
+
+/*The less than operator (<) compares the values of two numbers. If the number to the left is less than the number to the right,
+ it returns true. Otherwise, it returns false. Like the equality operator, the less than operator converts data types while comparing.*/
+
+ /*The less than or equal to operator (<=) compares the values of two numbers. If the number to the left is less than or equal to the number to the right, it returns true.
+ If the number on the left is greater than the number on the right, it returns false. Like the equality operator, the less than or equal to operator converts data types. */
+
+ function testLessOrEqual(val) {
+    if (val <= 12) {  
+      return "Smaller Than or Equal to 12";
+    }
+  
+    if (val <= 12) { 
+      return "Smaller Than or Equal to 24";
+    }
+  
+    return "More Than 24";
+  }
+  
+  testLessOrEqual(10);

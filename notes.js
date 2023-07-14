@@ -69,3 +69,53 @@ function testNotEqual(val) {
   testNotEqual(10);
 
 //Strict inequality (!==) is the logical opposite of the strict equality operator. It means "Strictly Not Equal" and returns false where strict equality would return true and vice versa, and would not convert data types while comparing.
+
+/*The greater than operator (>) compares the values of two numbers. If the number to the left is greater than the number to the right, it returns true. Otherwise, it returns false.
+
+Like the equality operator, the greater than operator will convert data types of values while comparing.*/
+
+5   >  3  // true
+7   > '3' // true
+2   >  3  // false
+'1' >  9  // false
+
+function testGreaterThan(val) {
+    if (val > 100) { 
+      return "Over 100";
+    }
+  
+    if (val > 10) { 
+      return "Over 10";
+    }
+  
+    return "10 or Under";
+  }
+  
+  testGreaterThan(10);
+
+  /*The greater than or equal to operator (>=) compares the values of two numbers. If the number to the left is greater than or equal to the number to the right, */
+
+6   >=  6  // true
+7   >= '3' // true
+2   >=  3  // false
+'7' >=  9  // false
+
+/*The less than operator (<) compares the values of two numbers. If the number to the left is less than the number to the right,
+ it returns true. Otherwise, it returns false. Like the equality operator, the less than operator converts data types while comparing.*/
+
+ /*The less than or equal to operator (<=) compares the values of two numbers. If the number to the left is less than or equal to the number to the right, it returns true.
+ If the number on the left is greater than the number on the right, it returns false. Like the equality operator, the less than or equal to operator converts data types. */
+
+ function testLessOrEqual(val) {
+    if (val <= 12) {  
+      return "Smaller Than or Equal to 12";
+    }
+  
+    if (val <= 12) { 
+      return "Smaller Than or Equal to 24";
+    }
+  
+    return "More Than 24";
+  }
+  
+  testLessOrEqual(10);
