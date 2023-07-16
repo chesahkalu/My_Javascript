@@ -1,41 +1,12 @@
-let count = 0;
+/*Objects are similar to arrays, except that instead of using indexes to access and modify their data, you access the data in objects through what are called properties.
 
-function cc(card) {
-  // Only change code below this line
-  
-switch (card){
-  case 2:
-  case 3:
-  case 4:
-  case 5:
-  case 6:
-  count += 1;
-  break;
-  case 7:
-  case 8:
-  case 9:
-  count = count;
-  break;
-  case 10:
-  case 'J':
-  case 'Q':
-  case 'K':
-  case 'A':
-  count -= 1;
-  break;
-}
+Objects are useful for storing data in a structured way, and can represent real world objects, like a cat.
 
-let reply = "";
+Here's a sample cat object:  */
 
-if (count < 0){
-  reply = count + " Hold";
-} else if (count === 0){ //
-  reply = count + " Hold"
-} else if (count > 0) { 
-  reply = count + " Bet"
-}
-  console.log(reply);
-  // Only change code above this line
-}
-
-cc(2); cc(3); cc(7); cc('K'); cc('A');
+const cat = {
+  "name": "Whiskers",
+  "legs": 4,
+  "tails": 1,
+  "enemies": ["Water", "Dogs"]
+};
