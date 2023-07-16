@@ -24,6 +24,9 @@ function functionWithArgs(num1, num2) {
     functionWithArgs(3, 5); // Output: The sum is: 8
 
 // Returning a value from a function, the return statement ends function execution and specifies a value to be returned to the function caller
+// If the return statement is without any expression, then the special value undefined is returned.
+// A function can only have one return statement. However, it can have more than one return values within the return statement.
+// Any code after the return statement will not execute.
 function minusSeven(num) {
     return num - 7;
     }
