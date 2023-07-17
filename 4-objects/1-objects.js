@@ -31,7 +31,7 @@ const cat = {
   console.log(prop1val); // val1
   
   // Bracket notation is what you use when you don't know ahead of time the name of the property you're trying to access(like in a function), or when the name of the property is stored as a variable.
-  // Also, you can use bracket notation to access a property which has a space in its name. However, you must use bracket notation if the property name is numbers.
+  // Also, you can use bracket notation to access a property which has a space in its name***. However, you must use bracket notation if the property name is numbers.
   
   const myObj1 = {
     "Space Name": "Kirk",
@@ -91,4 +91,5 @@ const cat = {
   delete ourDog["bark"]; // Bracket notation
   
   console.log(ourDog)
+
 
