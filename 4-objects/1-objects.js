@@ -1,11 +1,15 @@
 /*Objects are similar to arrays, except that instead of using indexes to access and modify their data, you access the data in objects through what are called properties.
 
 Objects are useful for storing data in a structured way, and can represent real world objects, like a cat.
+In JavaScript, objects can be used as lookup tables or dictionaries to store and retrieve values based on keys.
+Using objects for lookup can be beneficial when you have a set of related data that you want to access efficiently based on specific keys. It allows you to organize and access the data in a structured manner, 
+making it easier to retrieve information associated with a particular key.
 
 Here's a sample cat object:  */
 
 const cat = {
-    "name": "Whiskers",
+
+    "name": "Whiskers", // name is a property of cat object and Whiskers is the value of the property
     "legs": 4,
     "tails": 1,
     "enemies": ["Water", "Dogs"]
@@ -26,7 +30,7 @@ const cat = {
   
   console.log(prop1val); // val1
   
-  // Bracket notation is what you use when you don't know ahead of time the name of the property you're trying to access, or when the name of the property is stored as a variable.
+  // Bracket notation is what you use when you don't know ahead of time the name of the property you're trying to access(like in a function), or when the name of the property is stored as a variable.
   // Also, you can use bracket notation to access a property which has a space in its name. However, you must use bracket notation if the property name is numbers.
   
   const myObj1 = {
@@ -87,3 +91,4 @@ const cat = {
   delete ourDog["bark"]; // Bracket notation
   
   console.log(ourDog)
+
