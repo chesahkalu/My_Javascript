@@ -129,3 +129,17 @@ const cat = {
   //And here's how you can assign an object properties' values to variables with different names:
   const { johnDoe: { age: AuserAge, email: userEmail }} = user1;
   //Here, the johnDoe object's values for the age and email properties are extracted and assigned to the corresponding variables.
+
+
+  //You can destructure arrays as well.
+ 
+  const [a, b] = [1, 2, 3, 4, 5, 6];
+  console.log(a, b); // 1, 2
+
+  //The variable a is assigned the first value of the array, and b is assigned the second value of the array.
+  //We can also access the value at any index in an array with destructuring by using commas to reach the desired index:
+  const [a1, b1,,, c1] = [1, 2, 3, 4, 5, 6];
+  console.log(a1, b1, c1); // 1, 2, 5
+
+  let a2 = 8, b2 = 6; // Swapping values
+  [a2, b2] = [b2, a2]; // a2 = 6, b2 = 8
