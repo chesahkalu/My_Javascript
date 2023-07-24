@@ -142,4 +142,4 @@ const cat = {
   console.log(a1, b1, c1); // 1, 2, 5
 
   let a2 = 8, b2 = 6; // Swapping values
-  [a2, b2] = [b2, a2]; // a2 = 6, b2 = 8
+  [a2, b2] = [b2, a2]; // a2 = 6, b2 = 8.
