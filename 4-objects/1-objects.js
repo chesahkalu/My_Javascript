@@ -93,3 +93,39 @@ const cat = {
   console.log(ourDog)
 
 
+
+
+
+
+
+  //Destructuring assignment is special syntax introduced in ES6, for neatly assigning values taken directly from an object.
+  //Consider the following ES5 code:
+  const user = { name: 'John Doe', age: 34 };
+
+  const name = user.name; // name = 'John Doe'
+  const age = user.age; // age = 34
+
+  //Here's an equivalent assignment statement using the ES6 destructuring syntax:
+  const { nameAgain, ageAgain } = user;
+  // nameAgain = 'John Doe', ageAgain = 34
+  //Here, the nameAgain and ageAgain variables will be created and assigned the values of their respective values from the user object.
+
+  //Destructuring allows you to assign a new variable name when extracting values. You can do this by putting the new name after a colon when assigning the value.
+  const { name: userName, age: userAge } = user;
+  // userName = 'John Doe', userAge = 34
+  //You may read it as "get the value of user.name and assign it to a new variable named userName" and so on. The value of userName would be the string John Doe, and the value of userAge would be the number 34.
+
+
+  //You can destructure nested objects into variables.
+  //Consider the following code:
+  const user1 = {
+    johnDoe: {
+      age: 34,
+      email: 'johndoe@gmail.com'
+    }
+  };
+  //Here's how to extract the values of object properties and assign them to variables with the same name:
+  const { johnDoe: { Aage, email }} = user1;
+  //And here's how you can assign an object properties' values to variables with different names:
+  const { johnDoe: { age: AuserAge, email: userEmail }} = user1;
+  //Here, the johnDoe object's values for the age and email properties are extracted and assigned to the corresponding variables.
