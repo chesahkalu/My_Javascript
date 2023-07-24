@@ -54,3 +54,38 @@ ourArray1.unshift("Happy"); // ourArray1 now has the value ["Happy", "J", "cat"]
 
 //Shopping list
 var myList = [["Chocolate Bar", 15], ["Biscuits", 10], ["Crisps", 5], ["Coke", 2], ["Sweets", 20]];
+
+
+
+
+
+
+// Spread Operator
+// The spread operator, written with three consecutive dots ( ... ), is new in ES6 and gives you the ability to expand, or spread, iterable objects into multiple elements.
+//...arr returns an unpacked array. In other words, it spreads the array. However, the spread operator only works in-place, like in an argument to a function or in an array literal.
+// The spread operator unpacks all contents of an array into a comma-separated list. Consequently, you cannot add another element to the array with spread operator, only combine it with other arrays or strings.
+// The spread operator can be used to copy an array or combine arrays, or insert all the elements of one array into another, at any index.
+
+var anArr = [6, 89, 3, 45];
+var maximus = Math.max(...anArr); // returns 89
+
+// Copy an array
+var anArr1 = [1, 2, 3];
+var anArr2 = [...anArr1]; // arr2 is [1, 2, 3]
+
+// Concatenate arrays
+var aarr1 = [0, 1, 2];
+var aarr2 = [3, 4, 5];
+arr1 = [...aarr1, ...aarr2]; // arr1 is now [0, 1, 2, 3, 4, 5]
+
+// Insert all elements of an array into another at any index
+var barr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+var barr2 = ['JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+barr1.splice(1, 0, ...barr2); // arr1 is now ['JAN', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC', 'FEB', 'MAR', 'APR', 'MAY']
+
+
+
+
+// The spread operator can be used multiple times in conjunction with other elements.
+// The spread operator only works in-place, like in an argument to a function or in an array literal. The following code will not work:
+// const spreaded = ...arr; // will throw a syntax error
