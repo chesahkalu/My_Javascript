@@ -8,6 +8,13 @@ function sayHello() {
 // Calling a function
 sayHello(); // prints Hello
 
+// This is a function expression ; the function is stored in a variable and can be treated like any other value. This has some subtle differences in how the code is handled by the JavaScript engine.
+const sayHello = function() {
+    console.log("Hello");
+    }
+// Calling a function expression  
+
+
 
 // Function parameters can be used as variables inside of the function
 function sayHello(name) { // parameters like this means they are already declared variables scoped to the function 

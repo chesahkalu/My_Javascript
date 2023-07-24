@@ -13,6 +13,10 @@ let myData = anArray[0]; // myData has a value of 50
 //Modify array data with indexes - Unlike strings, the entries of arrays are mutable and can be changed freely.
 anArray[0] = 45; // anArray now has the value [45, 60, 70]. Unlike strings, arrays are mutable and can be changed freely even if they are declared with const.
 
+//To prevent this, JavaScript provides a function Object.freeze to prevent data mutation. This can arrays as well as objects.
+let hisArray = [50,60,70];
+Object.freeze(hisArray); // This line of code will freeze the array. The entries can't be modified.
+hisArray[0] = 45; // hisArray still has the value [50, 60, 70]
 
 
 //Access multi-dimensional arrays with indexes - One way to think of a multi-dimensional array, is as an array of arrays. When you use brackets to access your array, the first set of brackets refers to the entries in the outer-most (the first level) array, and each additional pair of brackets refers to the next level of entries inside.
