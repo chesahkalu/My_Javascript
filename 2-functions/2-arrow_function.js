@@ -22,3 +22,25 @@ const myFunc = () => "value"; //This code will still return the string value by 
 
 
 const magic = () => new Date(); //This is an arrow function that returns the date object.
+console.log(magic());
+
+
+
+
+//Just like a regular function, you can pass arguments into an arrow function.
+
+const doubler = (item) => item * 2;
+doubler(4); //return the value 8.
+
+//If an arrow function has a single parameter, the parentheses enclosing the parameter may be omitted.
+
+const myDoubler = item => item * 2;
+
+
+//It is possible to pass more than one argument into an arrow function.
+
+const multiplier = (item, multi) => item * multi;
+multiplier(4, 2); //return the value 8.
+
+const myConcat = (arr1, arr2) => arr1.concat(arr2); //This is an arrow function that returns the concatenated array.
+console.log(myConcat([1, 2], [3, 4, 5])); // prints [1, 2, 3, 4, 5]
