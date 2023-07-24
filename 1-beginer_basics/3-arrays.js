@@ -11,7 +11,9 @@ let anArray = [50,60,70];
 let myData = anArray[0]; // myData has a value of 50
 
 //Modify array data with indexes - Unlike strings, the entries of arrays are mutable and can be changed freely.
-anArray[0] = 45; // anArray now has the value [45, 60, 70]
+anArray[0] = 45; // anArray now has the value [45, 60, 70]. Unlike strings, arrays are mutable and can be changed freely even if they are declared with const.
+
+
 
 //Access multi-dimensional arrays with indexes - One way to think of a multi-dimensional array, is as an array of arrays. When you use brackets to access your array, the first set of brackets refers to the entries in the outer-most (the first level) array, and each additional pair of brackets refers to the next level of entries inside.
 const arr = [

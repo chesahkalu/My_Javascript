@@ -20,6 +20,31 @@ b = 70; //redefining the variable b
 //constant is the best option as it cannot be redefined or redeclared , and it is read only. You should always name variables you don't want to reassign using the const keyword.
 const c = 80; //redeclaring the variable c is not possible
 c = 90; //redefining the variable c is not possible
+//However, it is important to understand that objects (including arrays and functions) assigned to a variable using const are still mutable. Using the const declaration only prevents reassignment of the variable identifier.
+
+/*When you declare a variable with the var keyword, it is declared globally, or locally if declared inside a function.
+The let keyword behaves similarly, but with some extra features. When you declare a variable with the let keyword inside a block, 
+statement, or expression, its scope is limited to that block, statement, or expression.*/
+function checkScope() {
+    const i = 'function scope';
+    if (true) {
+      let i = 'block scope';
+      console.log('Block scope i is: ', i); // Block scope i is:  block scope
+    }
+    console.log('Function scope i is: ', i); // Function scope i is:  function scope 
+    return i;
+  } 
+
+
+
+
+
+
+
+
+
+
+  
 
 /*Note: It is common for developers to use UPPER_CASE variable identifiers for immutable values and lower_case or camelCase for mutable values (objects and arrays).
 You will learn more about objects, arrays, and immutable and mutable values in later challenges.*/
