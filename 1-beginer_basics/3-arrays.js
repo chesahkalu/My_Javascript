@@ -81,7 +81,9 @@ arr1 = [...aarr1, ...aarr2]; // arr1 is now [0, 1, 2, 3, 4, 5]
 // Insert all elements of an array into another at any index
 var barr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
 var barr2 = ['JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-barr1.splice(1, 0, ...barr2); // arr1 is now ['JAN', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC', 'FEB', 'MAR', 'APR', 'MAY']
+
+barr1.splice(1, 0, ...barr2); // barr1 is now ['JAN', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC', 'FEB', 'MAR', 'APR', 'MAY']
+
 
 
 
@@ -89,3 +91,17 @@ barr1.splice(1, 0, ...barr2); // arr1 is now ['JAN', 'JUN', 'JUL', 'AUG', 'SEP',
 // The spread operator can be used multiple times in conjunction with other elements.
 // The spread operator only works in-place, like in an argument to a function or in an array literal. The following code will not work:
 // const spreaded = ...arr; // will throw a syntax error
+
+
+  //You can destructure arrays as well.
+ 
+  const [a, b] = [1, 2, 3, 4, 5, 6];
+  console.log(a, b); // 1, 2
+
+  //The variable a is assigned the first value of the array, and b is assigned the second value of the array.
+  //We can also access the value at any index in an array with destructuring by using commas to reach the desired index:
+  const [a1, b1,,, c1] = [1, 2, 3, 4, 5, 6];
+  console.log(a1, b1, c1); // 1, 2, 5
+
+  let a2 = 8, b2 = 6; // Swapping values
+  [a2, b2] = [b2, a2]; // a2 = 6, b2 = 8. The array on the right hand side is destructured and assigned to the variables on the left hand side.
