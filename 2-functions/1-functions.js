@@ -94,3 +94,21 @@ function nextInLine(arr, item) {
     console.log(nextInLine(testArr, 6)); // prints 1
     console.log("After: " + JSON.stringify(testArr)); // prints After: [2,3,4,5,6]
     
+
+//Functions in Objects: Functions can be stored as object properties.  
+const bicycle = {
+  gear: 2,
+  setGear: function(newGear) { // this function expression can be written as : setGear(newGear) {
+    this.gear = newGear; // this keyword refers to the object that the method is associated with
+  }
+};
+bicycle.setGear(3);
+console.log(bicycle.gear);
+
+//with es6 you can remove the function keyword and colon altogether when defining functions in objects
+const person = {
+  name: "Taylor",
+  sayHello() {
+    return `Hello! My name is ${this.name}.`;
+  }
+};

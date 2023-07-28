@@ -54,3 +54,11 @@ console.log(greeting());  // prints Hello Anonymous
 /*The default parameter kicks in when the argument is not specified (it is undefined). As you can see in the example above,
 the parameter name will receive its default value Anonymous when you do not provide a value for the parameter. You can add default values for as many parameters as you want*/
 
+const getMousePosition = (x, y) => ({
+  x: x,
+  y: y
+});
+/*getMousePosition is a simple function that returns an object containing two properties. ES6 provides the syntactic sugar to eliminate the redundancy of having to write x: x. 
+You can simply write x once, and it will be converted to x: x (or something equivalent) under the hood. Here is the same function from above rewritten to use this new syntax:*/
+
+const getMousePosition2 = (x, y) => ({ x, y });
