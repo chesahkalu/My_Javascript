@@ -189,3 +189,22 @@ let result = userCheck.test(username);
 console.log(result); // This will return true.
 
 
+/* Match Whitespace, The challenges so far have covered matching letters of the alphabet and numbers. You can also match the whitespace or spaces between letters.
+You can search for whitespace using \s, which is a lowercase s. This pattern not only matches whitespace, but also carriage return, tab, form feed, and new line characters. You can think of it as similar to the character class [ \r\t\f\n\v]. */
+
+let whiteSpace = "Whitespace. Whitespace everywhere!";
+let spaceRegex = /\s/g; // This is the regex. The \s is the character class that will match all whitespace. g is the global flag that will match all occurrences of the pattern in all of the string.
+console.log(whiteSpace.match(spaceRegex)); // This will return [" ", " "].
+
+/* Match Non-Whitespace Characters, You learned about searching for whitespace using \s, with a lowercase s. You can also search for everything except whitespace.
+Search for non-whitespace using \S, which is an uppercase s. This pattern will not match whitespace, carriage return, tab, form feed, and new line characters.
+You can think of it being similar to the character class [^ \r\t\f\n\v]. */
+
+let whiteSpace2 = "Whitespace. Whitespace everywhere!";
+let nonSpaceRegex = /\S/g; // This is the regex. The \S is the character class that will match all non-whitespace. g is the global flag that will match all occurrences of the pattern in all of the string.
+console.log(whiteSpace2.match(nonSpaceRegex).length); // This will return 32. It will match all non-whitespace.
+
+/* Specify Upper and Lower Number of Matches, Recall that you use the plus sign + to look for one or more characters and the asterisk * to look for zero or more characters.
+These are convenient but sometimes you want to match a certain range of patterns.
+You can specify the lower and upper number of patterns with quantity specifiers. Quantity specifiers are used with curly brackets ({ and }). You put two numbers between the curly brackets - for the lower and upper number of patterns. */
+
