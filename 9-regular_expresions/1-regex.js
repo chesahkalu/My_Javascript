@@ -93,3 +93,47 @@ let quoteSample1 = "3 blind mice.";
 let myRegex2 = /[^aeiou0-9]/gi; // This is the regex. The [^aeiou0-9] is the negated character class that will only match the characters that are not a vowel and not a number.
 console.log(quoteSample1.match(myRegex2)); // This will return [" ", "b", "l", "n", "d", " ", "m", "c", "."].
 
+/* Match Characters that Occur One or More Times, Sometimes, you need to match a character (or group of characters) that appears one or more times in a row. This means it occurs at least once, and may be repeated.
+You can use the + character to check if that is the case. Remember, the character or pattern has to be present consecutively. That is, the character has to repeat one after the other. */
+
+let difficultSpelling = "Mississippi";
+let myRegex3 = /s+/g; // This is the regex. The + is the character that has to repeat one after the other.
+console.log(difficultSpelling.match(myRegex3)); // This will return ["ss", "ss"].
+
+/* Match Characters that Occur Zero or More Times, There's also an option that matches characters that occur zero or more times.
+The character to do this is the asterisk or star: *. */
+
+let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
+let chewieRegex = /Aa*/; // This is the regex. The * is the character that has to repeat zero or more times.
+console.log(chewieQuote.match(chewieRegex)); // This will return ["Aaaaaaaaaaaaaaaa"].
+
+/* Find Characters with Lazy Matching, In regular expressions, a greedy match finds the longest possible part of a string that fits the regex pattern and returns it as a match.
+The alternative is called a lazy match, which finds the smallest possible part of the string that satisfies the regex pattern. */
+
+let text = "<h1>Winter is coming</h1>";
+let myRegex4 = /<.*?>/; // This is the regex. The *? is the character that has to repeat zero or more times. Remember the ? character matches the smallest possible part of the string that satisfies the regex pattern and . matches any character, including whitespace.
+console.log(text.match(myRegex4)); // This will return ["<h1>"] instead of ["<h1>Winter is coming</h1>"].
+
+/* Match Beginning String Patterns, Prior challenges showed that regular expressions can be used to look for a number of matches. They are also used to search for patterns in specific positions in strings.
+In an earlier challenge, you used the caret character (^) inside a character set to create a negated character set in the form [^thingsThatWillNotBeMatched].
+Outside of a character set, the caret is used to search for patterns at the beginning of strings. */
+
+let rickyAndCal = "Cal and Ricky both like racing.";
+let calRegex = /^Cal/; // This is the regex. The ^ is the character that has to be at the beginning of the string.
+console.log(calRegex.test(rickyAndCal)); // This will return true.
+console.log(rickyAndCal.match(calRegex)); // This will return ["Cal"].
+console.log(rickyAndCal.match(/^Cal/)); // This will return ["Cal"].
+console.log(rickyAndCal.match(/^Ricky/)); // This will return null. Because the string Ricky is not at the beginning of the string.
+
+/* Match Ending String Patterns, You can search the end of strings using the dollar sign character $ at the end of the regex. */
+
+let caboose = "The last car on a train is the caboose";
+let lastRegex = /caboose$/; // This is the regex. The $ is the character that has to be at the end of the string.
+console.log(lastRegex.test(caboose)); // This will return true.
+console.log(caboose.match(lastRegex)); // This will return ["caboose"].
+console.log(caboose.match(/caboose$/)); // This will return ["caboose"].
+
+
+
+
+
