@@ -100,7 +100,7 @@ let difficultSpelling = "Mississippi";
 let myRegex3 = /s+/g; // This is the regex. The + is the character that has to repeat one after the other.
 console.log(difficultSpelling.match(myRegex3)); // This will return ["ss", "ss"].
 
-/* Match Characters that Occur Zero or More Times, There's also an option that matches characters that occur zero or more times.
+/* Match Characters that Occur Zero or More Times, There's also an option that matches characters that occur zero or more times(Empty strings), You can use the * character to do this.
 The character to do this is the asterisk or star: *. */
 
 let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
@@ -207,4 +207,122 @@ console.log(whiteSpace2.match(nonSpaceRegex).length); // This will return 32. It
 /* Specify Upper and Lower Number of Matches, Recall that you use the plus sign + to look for one or more characters and the asterisk * to look for zero or more characters.
 These are convenient but sometimes you want to match a certain range of patterns.
 You can specify the lower and upper number of patterns with quantity specifiers. Quantity specifiers are used with curly brackets ({ and }). You put two numbers between the curly brackets - for the lower and upper number of patterns. */
+//For example, to match only the letter a appearing between 3 and 5 times in the string "ah", your regex would be /a{3,5}h/.
+
+let A4 = "aaaah";
+let A2 = "aah";
+let multipleA = /a{3,5}h/; // This is the regex. The {3,5} is the quantity specifier that will match between 3 and 5 a's. g is the global flag that will match all occurrences of the pattern in all of the string.
+console.log(multipleA.test(A4)); // This will return true.
+console.log(multipleA.test(A2)); // This will return false.
+
+let ohStr = "Ohhh no";
+let ohRegex = /Oh{3,6} no/; // This is the regex. The {3,6} is the quantity specifier that will match between 3 and 6 h's. g is the global flag that will match all occurrences of the pattern in all of the string.
+let result2 = ohRegex.test(ohStr);
+console.log(result2); // This will return true.
+
+/* Specify Only the Lower Number of Matches, You can specify the lower and upper number of patterns with quantity specifiers using curly brackets.
+Sometimes you only want to specify the lower number of patterns with no upper limit.
+To only specify the lower number of patterns, keep the first number followed by a comma. */
+//For example, to match only the string "hah" with the letter a appearing at least 3 times, your regex would be /ha{3,}h/.
+
+let A5 = "haaaah";
+let A6 = "haah";
+let A7 = "hah";
+let multipleA2 = /ha{3,}h/; // This is the regex. The {3,} is the quantity specifier that will match 3 or more a's. g is the global flag that will match all occurrences of the pattern in all of the string.
+console.log(multipleA2.test(A5)); // This will return true.
+console.log(multipleA2.test(A6)); // This will return false.
+console.log(multipleA2.test(A7)); // This will return false.
+
+let haStr = "Hazzzzah";
+let haRegex = /Haz{4,}ah/; // This is the regex. The {4,} is the quantity specifier that will match 4 or more z's. g is the global flag that will match all occurrences of the pattern in all of the string.
+let result3 = haRegex.test(haStr);
+console.log(result3); // This will return true.
+
+/* Specify Exact Number of Matches, You can specify the lower and upper number of patterns with quantity specifiers using curly brackets.
+Sometimes you only want a specific number of matches.
+To specify a certain number of patterns, just have that one number between the curly brackets. */
+
+let A8 = "haaaah";
+let A9 = "haah";
+let A10 = "hah";
+let multipleA3 = /ha{3}h/; // This is the regex. The {3} is the quantity specifier that will match exactly 3 a's. g is the global flag that will match all occurrences of the pattern in all of the string.
+console.log(multipleA3.test(A8)); // This will return true.
+console.log(multipleA3.test(A9)); // This will return false.
+console.log(multipleA3.test(A10)); // This will return false.
+
+let timStr = "Timmmmber";
+let timRegex = /Tim{4}ber/; // This is the regex. The {4} is the quantity specifier that will match exactly 4 m's. g is the global flag that will match all occurrences of the pattern in all of the string.
+let result4 = timRegex.test(timStr);
+console.log(result4); // This will return true.
+
+/* Check for All or None, Sometimes the patterns you want to search for may have parts of it that may or may not exist.
+However, it may be important to check for them nonetheless.
+You can specify the possible existence of an element with a question mark, ?. This checks for zero or one of the preceding element. */
+//For example, there are slight differences in American and British English and you can use the question mark to match both spellings.
+
+let american = "color";
+let british = "colour";
+let rainbowRegex = /colou?r/; // This is the regex. The ? is the character that will match 0 or 1 of the preceding element. g is the global flag that will match all occurrences of the pattern in all of the string.
+console.log(rainbowRegex.test(american)); // This will return true.
+console.log(rainbowRegex.test(british)); // This will return true.
+
+let favWord = "favorite";
+let favRegex = /favou?rite/; // This is the regex. The ? is the character that will match 0 or 1 of the preceding element. g is the global flag that will match all occurrences of the pattern in all of the string.
+let result5 = favRegex.test(favWord);
+console.log(result5); // This will return true.
+
+/* Positive and Negative Lookahead, Lookaheads are patterns that tell JavaScript to look-ahead in your string to check for patterns further along.
+This can be useful when you want to search for multiple patterns over the same string.
+There are two kinds of lookaheads: positive lookahead and negative lookahead.
+A positive lookahead will look to make sure the element in the search pattern is there, but won't actually match it.
+A positive lookahead is used as (?=...) where the ... is the required part that is not matched.
+On the other hand, a negative lookahead will look to make sure the element in the search pattern is not there.
+A negative lookahead is used as (?!...) where the ... is the pattern that you do not want to be there.
+The rest of the pattern is returned if the negative lookahead part is not present. */
+//Lookaheads are a bit confusing but some examples will help.
+
+let quit = "qu";
+let noquit = "qt";
+let quRegex = /q(?=u)/; // This is the regex. The (?=u) is the positive lookahead that will match q only if it is followed by a u. g is the global flag that will match all occurrences of the pattern in all of the string.
+let qRegex = /q(?!u)/; // This is the regex. The (?!u) is the negative lookahead that will match q only if it is not followed by a u. g is the global flag that will match all occurrences of the pattern in all of the string.
+console.log(quit.match(quRegex)); // This will return ["q"].
+console.log(noquit.match(qRegex)); // This will return ["q"].
+
+let sampleWord = "astronaut";
+let pwRegex = /(?=\w{6})(?=\w*\d{2})/; // This is the regex. The (?=\w{6}) is the positive lookahead that will match passwords that are greater than 5 characters long. The (?=\w*\d{2}) is the positive lookahead that will match passwords that have two consecutive digits. g is the global flag that will match all occurrences of the pattern in all of the string.
+let result6 = pwRegex.test(sampleWord);
+console.log(result6); // This will return true.
+
+/* Check For Mixed Grouping of Characters, Sometimes we want to check for groups of characters using a Regular Expression and to achieve that we use parentheses ().
+If you want to find either Penguin or Pumpkin in a string, you can use the following Regular Expression: /P(engu|umpk)in/g
+Then check whether the desired string groups are in the test string by using the test() method. */
+//This will return true.
+
+let testStr = "Pumpkin";
+let testRegex = /P(engu|umpk)in/; // This is the regex. The (engu|umpk) is the group of characters that will match either engu or umpk. g is the global flag that will match all occurrences of the pattern in all of the string.
+testRegex.test(testStr); // This will return true.
+
+let myString2 = "Eleanor Roosevelt";
+let myRegex22 = /(Franklin|Eleanor) (([A-Z]\.?|[A-Z][a-z]+) )?Roosevelt/; // This is the regex. The (Franklin|Eleanor) is the group of characters that will match either Franklin or Eleanor. The (([A-Z]\.?|[A-Z][a-z]+) )? is the group of characters that will match either a middle name or a middle initial. The ([A-Z]\.?|[A-Z][a-z]+) is the group of characters that will match either a middle initial or a middle name. The ? is the character that will match 0 or 1 of the preceding element. The g is the global flag that will match all occurrences of the pattern in all of the string.
+let result7 = myRegex22.test(myString2); // This will return true.
+console.log(result7);
+
+/* Reuse Patterns Using Capture Groups, Some patterns you search for will occur multiple times in a string.
+It is wasteful to manually repeat that regex. There is a better way to specify when you have multiple repeat substrings in your string.
+You can search for repeat substrings using capture groups.
+Parentheses, ( and ), are used to find repeat substrings.
+You put the regex of the pattern that will repeat in between the parentheses. */
+//To specify where that repeat string will appear, you use a backslash (\) and then a number.
+//This number starts at 1 and increases with each additional capture group you use. An example would be \1 to match the first group.
+
+let repeatStr = "row row row your boat";
+let repeatRegex = /(\w+)\s\1\s\1/; // This is the regex. The (\w+) is the group of characters that will match any word character one or more times. The \s is the character that will match any whitespace character one time. The \1 is the character that will match the first group of characters that is repeated. g is the global flag that will match all occurrences of the pattern in all of the string.
+let result8 = repeatRegex.test(repeatStr);
+console.log(result8); // This will return true.
+let result9 = repeatStr.match(repeatRegex);
+console.log(result9); // This will return ["row row row", "row"].
+
+
+
+
 
