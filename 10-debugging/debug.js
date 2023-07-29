@@ -112,10 +112,54 @@ for (let k = 0; k < len; k++) {  // this will print the whole alphabet
   console.log(alphabet[k]);
 }
 
+/* Use Caution When Reinitializing Variables Inside a Loop: Sometimes it's necessary to save information, increment counters, or re-set variables within a loop. A potential issue is when variables
+either should be reinitialized, and aren't, or vice versa. This is particularly dangerous if you accidentally reset the variable being used for the terminal condition, causing an infinite loop.
+Printing variable values with each cycle of your loop by using console.log() can uncover buggy behavior related to resetting, or failing to reset a variable.*/
+// The following function is supposed to create a two-dimensional array with m rows and n columns of zeroes. Unfortunately, it's not producing the expected output because the row variable isn't being reinitialized (set back to an empty array) in the outer loop.
+// Fix the code so it returns a correct 3x2 array of zeroes, which looks like [[0, 0], [0, 0], [0, 0]].
 
+function zeroArray(m, n) {
+    // Creates a 2-D array with m rows and n columns of zeroes
+    let newArray = [];
+    let row = []; // this variable should be reinitialized in the outer loop
+    for (let i = 0; i < m; i++) {
+        // Adds the m-th row into newArray
+        // row = []; // this line should be here
+        for (let j = 0; j < n; j++) {
+        // Pushes n zeroes into the current row to create the columns
+        row.push(0);
+        }
+        // Pushes the current row, which now has n zeroes in it, to the array
+        newArray.push(row);
+        row = []; // this line should be here to reinitialize the variable row 
+    }
+    return newArray;
+}
 
+let matrix = zeroArray(3, 2);
+console.log(matrix);
 
+/* Prevent Infinite Loops with a Valid Terminal Condition: The final topic is the dreaded infinite loop. Loops are great tools when you need your program to run a code block a certain number of times or until a condition is met,
+but they need a terminal condition that ends the looping. Infinite loops are likely to freeze or crash the browser, and cause general program execution mayhem, which no one wants. There was an example of an infinite loop in the
+introduction to this section - it had no terminal condition to break out of the while loop inside loopy(). Do NOT call this function!
 
+function loopy() {
+    while(true) {
+        console.log("Hello, world!");
+    } // infinite loop
 
-// Syntax errors are typos or incorrectly-placed punctuation, and they're pretty common.
+One error is incrementing or decrementing a counter variable in the wrong direction from the terminal condition. 
+Another one is accidentally resetting a counter or index variable within the loop code, instead of incrementing or decrementing it.
 
+function myFunc() {
+  for (let i = 1; i != 4; i += 2) {
+    console.log("Still going!");
+  }
+} //infinite loop because the terminal condition i != 4 will never evaluate to false (and break the looping) - i will increment by 2 each pass, and jump right over 4 since i is odd to start.
+*/
+
+function myFunc() {
+    for (let i = 1; i <= 4; i += 2) {
+      console.log("Still going!");
+    }
+  }
