@@ -41,8 +41,76 @@ const quoteInString = "Groucho Marx once said 'Quote me as saying I was mis-quot
 // .... const uhOhGroucho = 'I've had a perfectly wonderful evening, but this wasn't it.'; // Throws an error because the single quote in the string is not escaped, which means it is closed early.
 const uhOhGroucho = 'I\'ve had a perfectly wonderful evening, but this wasn\'t it.'; // this is correct
 
+/* The assignment operator (=) in JavaScript assigns a value to a variable name. And the == and === operators check for equality (the triple === tests for strict equality, meaning both value and type are the same).
+It is possible to assign a value to a variable using == or === in place of =. This allows you to avoid the common mistake of using a single equal sign when you meant to assign a value to a variable.*/
+
+let x = 7; // this assings the value 7 to the variable x
+let y = 9; 
+let result = "to come";
+
+if(x = y) {  // this assigns the value of y to x .  if (x == y) would be the correct way to compare these two variables.
+  result = "Equal!";
+} else {
+  result = "Not equal!";
+}
+
+console.log(result);
+
+/* Functions can be assinged to variables in JavaScript, and are known as function expressions. The variable name can then be used to call the function. 
+But calling a function without an argument might make us forget the empty () at the end.*/
+
+function myFunction() {
+    return "You rock!";
+  }
+
+let varOne = myFunction; // this assigns the function myFunction to the variable varOne
+let varTwo = myFunction(); // this assigns the value returned by the function myFunction to the variable varTwo, this is an example of a function call
+console.log(varOne); // prints the function myFunction
+console.log(varOne()); // prints the value returned by the function myFunction
+console.log(varTwo); // prints the value returned by the function myFunction
 
 
+/* Catch Arguments Passed in the Wrong Order When Calling a Function: Continuing the discussion on calling functions, the next bug to watch out for is when a function's arguments are supplied in the incorrect order.
+If the arguments are different types, such as a function expecting an array and an integer, this will likely throw a runtime error. If the arguments are the same type (all integers, for example), then the logic of the code won't make sense.
+Make sure to supply all required arguments, in the proper order to avoid these issues.*/
+// These are correct:
+
+function raiseToPower(b, e) {
+    return Math.pow(b, e);
+    }
+
+let base = 2;
+let exp = 3;
+let power = raiseToPower(base, exp);
+console.log(power); // prints 8
+
+// And this is incorrect:
+
+// function raiseToPower(b, e) {
+//     return Math.pow(e, b); // this will return the value of e to the power of b, instead of b to the power of e
+//     }
+
+// let base = 2;
+// let exp = 3;
+// let power = raiseToPower(exp, base);
+// console.log(power); // prints 9
+
+/* Catch Off By One Errors When Using Indexing: Off by one errors (sometimes called OBOE) crop up when you're trying to target a specific index of a string or array (to slice or access a segment),
+or when looping over the indices of them. JavaScript indexing starts at zero, not one, which means the last index is always one less than the length of the item. If you try to access an index equal to the length,
+the program may throw an "index out of range" reference error or print undefined. When you use string or array methods that take index ranges as arguments, it helps to read the documentation and understand
+if they are inclusive (the item at the given index is part of what's returned) or not. Here are some examples of off by one errors:*/
+
+let alphabet = "abcdefghijklmnopqrstuvwxyz";
+let len = alphabet.length;
+for (let i = 0; i <= len; i++) { // this will print the whole alphabet plus undefined, because the last index is len - 1
+  console.log(alphabet[i]);
+}
+for (let j = 1; j < len; j++) { // this will print the whole alphabet minus a, because the first index is 0
+  console.log(alphabet[j]);
+}
+for (let k = 0; k < len; k++) {  // this will print the whole alphabet
+  console.log(alphabet[k]);
+}
 
 
 
