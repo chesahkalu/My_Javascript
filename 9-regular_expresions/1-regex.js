@@ -133,7 +133,59 @@ console.log(lastRegex.test(caboose)); // This will return true.
 console.log(caboose.match(lastRegex)); // This will return ["caboose"].
 console.log(caboose.match(/caboose$/)); // This will return ["caboose"].
 
+/* Match All Letters and Numbers, Using character classes, you were able to search for all letters of the alphabet with [a-z]. This kind of character class is common enough that there is a shortcut for it, although it includes a few extra characters as well.
+The closest character class in JavaScript to match the alphabet is \w. This shortcut is equal to [A-Za-z0-9_]. This character class matches upper and lowercase letters plus numbers. Note, this character class also includes the underscore character (_). */
 
+let longHand = /[A-Za-z0-9_]+/; // This is the regex. The [A-Za-z0-9_] is the character class that will match all letters of the alphabet plus numbers. + is the character that has to repeat one or more times.
+let shortHand = /\w+/; // This is the regex. The \w is the character class that will match all letters of the alphabet plus numbers. + is the character that has to repeat one or more times.
+let numbers = "42";
+let varNames = "important_var";
+console.log(longHand.test(numbers)); // This will return true. Because the string 42 is a number.
+console.log(shortHand.test(numbers)); // This will return true. Because the string 42 is a number.
+console.log(longHand.test(varNames)); // This will return true. Because the string important_var is a string.
+console.log(shortHand.test(varNames)); // This will return true. Because the string important_var is a string.
 
+let quoteSample2 = "The five boxing wizards jump quickly.";
+let alphabetRegexV2 = /\w/g; // This is the regex. The \w is the character class that will match all letters of the alphabet plus numbers.
+console.log(quoteSample2.match(alphabetRegexV2).length); // This will return 31. It will match all letters of the alphabet plus numbers.
+
+/* Match Everything But Letters and Numbers, You've learned that you can use a shortcut to match alphanumerics [A-Za-z0-9_] using \w. A natural pattern you might want to search for is the opposite of alphanumerics.
+You can search for the opposite of the \w with \W. Note, the opposite pattern uses a capital letter. This shortcut is the same as [^A-Za-z0-9_]. */
+
+let shortHand2 = /\W/; // This is the regex. The \W is the character class that will match everything but letters of the alphabet plus numbers.
+let numbers2 = "42%";
+let sentence = "Coding!";
+console.log(numbers2.match(shortHand2)); // This will return ["%"].
+console.log(sentence.match(shortHand2)); // This will return ["!"].
+
+let quoteSample3 = "The five boxing wizards jump quickly.";
+let nonAlphabetRegex = /\W/g; // This is the regex. The \W is the character class that will match everything but letters of the alphabet plus numbers. g is the global flag that will match all occurrences of the pattern in all of the string.
+console.log(quoteSample3.match(nonAlphabetRegex).length); // This will return 6. It will match all characters that are not letters of the alphabet plus numbers.
+
+/* Match All Numbers, You've learned shortcuts for common string patterns like alphanumerics. Another common pattern is looking for just digits or numbers.
+The shortcut to look for digit characters is \d, with a lowercase d. This is equal to the character class [0-9], which looks for a single character of any number between zero and nine. */
+
+let movieName = "2001: A Space Odyssey";
+let numRegex = /\d/g; // This is the regex. The \d is the character class that will match all numbers. g is the global flag that will match all occurrences of the pattern in all of the string.
+console.log(movieName.match(numRegex).length); // This will return 4. It will match all numbers.
+
+/* Match All Non-Numbers, The last challenge showed how to search for digits using the shortcut \d with a lowercase d. You can also search for non-digits using a similar shortcut that uses an uppercase D instead.
+The shortcut to look for non-digit characters is \D. This is equal to the character class [^0-9], which looks for a single character that is not a number between zero and nine. */
+
+let movieName2 = "2001: A Space Odyssey";
+let noNumRegex = /\D/g; // This is the regex. The \D is the character class that will match all non-numbers. g is the global flag that will match all occurrences of the pattern in all of the string.
+console.log(movieName2.match(noNumRegex).length); // This will return 17. It will match all non-numbers.
+
+/* Restrict Possible Usernames, Usernames are used everywhere on the internet. They are what give users a unique identity on their favorite sites.
+You need to check all the usernames in a database. Here are some simple rules that users have to follow when creating their username.
+1) Usernames can only use alpha-numeric characters.
+2) The only numbers in the username have to be at the end. There can be zero or more of them at the end.
+3) Username letters can be lowercase and uppercase.
+4) Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters. */
+
+let username = "JackOfAllTrades";
+let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i;
+let result = userCheck.test(username);
+console.log(result); // This will return true.
 
 
