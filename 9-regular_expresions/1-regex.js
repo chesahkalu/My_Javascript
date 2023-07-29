@@ -322,7 +322,31 @@ console.log(result8); // This will return true.
 let result9 = repeatStr.match(repeatRegex);
 console.log(result9); // This will return ["row row row", "row"].
 
+let repeatNum = "42 42 42";
+let reRegex = /^(\d+) \1 \1$/; // This is the regex. The ^ is the character that will match the beginning of the string. The (\d+) is the group of characters that will match any digit character one or more times. The \1 is the character that will match the first group of characters that is repeated. The $ is the character that will match the end of the string. g is the global flag that will match all occurrences of the pattern in all of the string.
+console.log(result10); // This will return true.
+let result11 = repeatNum.match(reRegex);
+console.log(result11); // This will return ["42 42 42", "42"].
 
+/* Use Capture Groups to Search and Replace, Searching is useful. However, you can make searching even more powerful when it also changes (or replaces) the text you match.
+You can search and replace text in a string using .replace() on a string.
+The inputs for .replace() is first the regex pattern you want to search for.
+The second parameter is the string to replace the match or a function to do something. */
 
+let wrongText = "The sky is silver.";
+let silverRegex = /silver/; // This is the regex. The silver is the string that will be replaced. g is the global flag that will match all occurrences of the pattern in all of the string.
+wrongText.replace(silverRegex, "blue"); // This will return "The sky is blue.".
 
+let str = "one two three";
+let fixRegex = /(\w+)\s(\w+)\s(\w+)/; // This is the regex. The (\w+) is the group of characters that will match any word character one or more times. The \s is the character that will match any whitespace character one time. g is the global flag that will match all occurrences of the pattern in all of the string.
+let replaceText = "$3 $2 $1"; // This is the string that will replace the matched text. The $3 is the character that will match the third group of characters that is repeated. The $2 is the character that will match the second group of characters that is repeated. The $1 is the character that will match the first group of characters that is repeated.
+let result12 = str.replace(fixRegex, replaceText);
+console.log(result12); // This will return "three two one".
 
+/* Remove Whitespace from Start and End, Sometimes whitespace characters around strings are not wanted but are there.
+Typical processing of strings is to remove the whitespace at the start and end of it.
+Write a regex and use the appropriate string methods to remove whitespace at the beginning and end of strings. */
+
+let hello = "   Hello, World!  ";
+let wsRegex = /^\s+|\s+$/g; // This is the regex. The ^ is the character that will match the beginning of the string. The \s+ is the character that will match any whitespace character one or more times. The | is the character that will match either the beginning or the end of the string. The $ is the character that will match the end of the string. g is the global flag that will match all occurrences of the pattern in all of the string.
+let result13 = hello.replace(wsRegex, ""); // This will return "Hello, World!".
