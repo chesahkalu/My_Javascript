@@ -93,7 +93,26 @@ const cat = {
   console.log(ourDog)
 
 
+// Iterate Through the Keys of an Object with a for...in Statement: Sometimes you may need to iterate through all the keys within an object. This requires a specific syntax in JavaScript called a for...in statement.
+const refrigerator = {
+  'milk': 1,
+  'eggs': 12,
+};
 
+for (const i in refrigerator) { // i is the key
+  console.log(i, refrigerator[i]); // i is the key, refrigerator[i] is the value, i.e. refrigerator['milk'] = 1 and refrigerator['eggs'] = 12 , prints milk 1 and eggs 12
+}
+//NOTE: Objects do not maintain an ordering to stored keys like arrays do; thus a key's position on an object, or the relative order in which it appears, is irrelevant when referencing or accessing that key.
+
+
+// Object.keys() method returns an array of a given object's own enumerable property names, iterated in the same order that a normal loop would.
+const object1 = {
+  a: 'somestring',
+  b: 42,
+  c: false
+};
+
+console.log(Object.keys(object1)); // expected output: Array ["a", "b", "c"]
 
 
 
