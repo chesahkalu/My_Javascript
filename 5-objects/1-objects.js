@@ -1,5 +1,5 @@
 /*Objects are similar to arrays, except that instead of using indexes to access and modify their data, you access the data in objects through what are called properties.
-
+At their most basic, objects are just collections of key-value pairs. In other words, they are pieces of data (values) mapped to unique identifiers called properties (keys). 
 Objects are useful for storing data in a structured way, and can represent real world objects, like a cat.
 In JavaScript, objects can be used as lookup tables or dictionaries to store and retrieve values based on keys.
 Using objects for lookup can be beneficial when you have a set of related data that you want to access efficiently based on specific keys. It allows you to organize and access the data in a structured manner, 
