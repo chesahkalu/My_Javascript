@@ -77,3 +77,42 @@ for (let property in duck3) {
 
 console.log(ownProps2);
 console.log(prototypeProps);
+
+// More prototype properties can be added to a constructor function at once by adding them to the constructor's prototype object.
+
+Bird2.prototype = {
+    constructor: Bird2, // It is important to define the constructor property. Otherwise instances of Bird2 would show the prototype as undefined.
+    numLegs: 2,
+    eat: function() {
+        console.log("nom nom nom");
+    },
+    describe: function() {
+        console.log("My name is " + this.name);
+    }
+};
+
+// Constructor property is a reference to the constructor function that created the instance. And can be accessed with .constructor. Both for own and prototype properties.
+// It can be useful to check which constructor function created the instance, especially if you extend the constructor function to be used by other objects.
+
+function Dog(name) {
+    this.name = name;
+  }
+
+function joinDogFraternity(candidate) {
+    if (candidate.constructor === Dog) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+// joinDogFraternity function checks if an object constructor is Dog by comparing its constructor property to Dog. If true, it returns true, else false. This way, if the constructor function is changed, the joinDogFraternity function will still work.
+
+
+// an object inherits its prototype directly from the constructor function that created it. You can show this relationship with the isPrototypeOf method:
+
+Bird2.prototype.isPrototypeOf(duck3); // returns true
+
+// All objects in JavaScript (with a few exceptions) have a prototype. Also, an object’s prototype itself is an object.
+// Because a prototype is an object, a prototype can have its own prototype! In this case, the prototype of Bird.prototype is Object.prototype:
+
+Object.prototype.isPrototypeOf(Bird2.prototype); // returns true
