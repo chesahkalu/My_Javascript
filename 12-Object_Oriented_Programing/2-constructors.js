@@ -48,10 +48,10 @@ for (let property in canary) {
   }
 }
 
-console.log(ownProps);
+console.log(ownProps); // prints [ "name", "color", "numLegs" ]
 
-// Prototype properties are shared among ALL instances of Bird. This will save memory space, since it is probably same value for all instances. Excluding it from the constructor function and defining it seperately is more efficient.
-// This can be done by adding it to the Bird prototype.
+// Prototype properties are shared among ALL instances of Bird. NumLegs are same for all birds, since it is probably same value for all instances,Excluding it from the constructor function and defining it seperately is more efficient.
+// This will save memory space,This can be done by adding it to the Bird prototype.
 
 
 function Bird2(name) {
@@ -75,8 +75,8 @@ for (let property in duck3) {
   }
 }
 
-console.log(ownProps2);
-console.log(prototypeProps);
+console.log(ownProps2); // prints ["name"]
+console.log(prototypeProps); // prints ["numLegs"]
 
 // More prototype properties can be added to a constructor function at once by adding them to the constructor's prototype object.
 
