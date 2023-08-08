@@ -32,3 +32,39 @@ let duck2 = new Bird("Donald"); // duck inherits all properties and methods from
 // If you have an instance let duck of Bird, you can call duck.constructor to find out which constructor was used to create duck. But duck.constructor is currently pointing to Animal. To fix this, you can manually set Bird's constructor property to the Bird object:
 
 Bird.prototype.constructor = Bird; // Now duck.constructor will be set to Bird instead of Animal. This is important because duck and all instances of Bird should show that they were constructed by Bird and not Animal.
+
+
+
+
+
+
+// Normally you can go ahead and add methods and properties to the protoype after inheritance. For example:
+
+function Animal2() { }
+Animal2.prototype.eat = function () {
+    console.log("nom nom nom");
+}
+
+function Dog() { }
+
+// Inherit all methods from Animal
+Dog.prototype = Object.create(Animal2.prototype);
+
+// Set the constructor property
+Dog.prototype.constructor = Dog;
+
+// Add a method to Dog's prototype
+Dog.prototype.bark = function () {
+    console.log("Woof!");
+}
+
+let beagle = new Dog();
+
+beagle.eat(); // Should print "nom nom nom"
+beagle.bark(); // Should print "Woof!"
+
+// Child objects can override inherited methods from the parent object. It's done the same way - by adding a method to ChildObject.prototype using the same method name as the one to override. For example:
+Dog.prototype.eat = function () {
+    console.log("chew chew chew"); // overrides the eat method from Animal
+}
+
