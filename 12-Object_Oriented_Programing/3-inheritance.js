@@ -68,6 +68,9 @@ Dog.prototype.eat = function () {
     console.log("chew chew chew"); // overrides the eat method from Animal
 }
 
+
+
+
 /*As you have seen, behavior is shared through inheritance. However, there are cases when inheritance is not the best solution. Inheritance does not work well for unrelated objects like Bird and Airplane.
 They can both fly, but a Bird is not a type of Airplane and vice versa.
 
@@ -95,3 +98,21 @@ let plane = {
 
 flyMixin(bird2); // adds the fly method to bird
 flyMixin(plane); // adds the fly method to plane
+
+
+// IIFE to create a module
+let funModule = (function () {
+    return {
+        isCuteMixin: function (obj) {
+            obj.isCute = function () {
+                return true;
+            };
+        },
+        singMixin: function (obj) {
+            obj.sing = function () {
+                console.log("Singing to an awesome tune");
+            };
+        }
+    }
+})(); // The two parentheses cause the function to be immediately invoked or executed. This pattern is known as an immediately invoked function expression or IIFE. 
+

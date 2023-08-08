@@ -114,6 +114,19 @@ const person = {
 };
 
 
+// IIFE: Immediately Invoked Function Expression, is a common pattern for executing code right as it's created.
+(function () {
+  console.log("A cozy nest is ready");
+})(); // the two parentheses cause the function to be immediately invoked
+  // prints A cozy nest is ready
+
+  
+/*Note that the function has no name and is not stored in a variable. The two parentheses () at the end of the function expression cause it to be immediately executed or invoked.
+This pattern is known as an immediately invoked function expression or IIFE.*/
+
+
+
+
 // Closure is the combination of a function and the lexical environment within which that function was declared. This environment consists of any local variables that were in-scope at the time the closure was created.
 // A closure is a function having access to the parent scope, even after the parent function has closed (returned). This means a closure can remember and access variables and arguments of its outer function even after the function has finished.
 // In JavaScript, closures are created every time a function is created, at function creation time and not at function execution time. It is used to create private variables and methods and to avoid polluting the global scope.
