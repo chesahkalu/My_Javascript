@@ -68,3 +68,30 @@ Dog.prototype.eat = function () {
     console.log("chew chew chew"); // overrides the eat method from Animal
 }
 
+/*As you have seen, behavior is shared through inheritance. However, there are cases when inheritance is not the best solution. Inheritance does not work well for unrelated objects like Bird and Airplane.
+They can both fly, but a Bird is not a type of Airplane and vice versa.
+
+For unrelated objects, it's better to use mixins. A mixin allows other objects to use a collection of functions. 
+
+And to achieve this you can create a sperate method and then call it inside the constructor function. For example: */
+
+let flyMixin = function (obj) {
+    obj.fly = function () {
+        console.log("Flying, wooosh!");
+    }
+}
+
+// The flyMixin takes any object and gives it the fly method.
+
+let bird2 = {
+    name: "Donald",
+    numLegs: 2
+};
+
+let plane = {
+    model: "777",
+    numPassengers: 524
+};
+
+flyMixin(bird2); // adds the fly method to bird
+flyMixin(plane); // adds the fly method to plane

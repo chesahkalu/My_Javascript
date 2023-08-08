@@ -116,3 +116,33 @@ Bird2.prototype.isPrototypeOf(duck3); // returns true
 // Because a prototype is an object, a prototype can have its own prototype! In this case, the prototype of Bird.prototype is Object.prototype:
 
 Object.prototype.isPrototypeOf(Bird2.prototype); // returns true
+
+
+// Closure is the combination of a function and the lexical environment within which that function was declared. This environment consists of any local variables that were in-scope at the time the closure was created.
+// A closure is a function having access to the parent scope, even after the parent function has closed (returned). This means a closure can remember and access variables and arguments of its outer function even after the function has finished.
+// In JavaScript, closures are created every time a function is created, at function creation time and not at function execution time. It is used to create private variables and methods and to avoid polluting the global scope.
+
+function makeFunc() {
+    let name = "Mozilla"; // name is a local variable created by makeFunc.
+    function displayName() { // displayName() is the inner function, a closure.
+      console.log(name); // displayName() uses variable declared in the parent function.
+    }
+    return displayName;
+  }
+
+
+
+
+let myFunc = makeFunc(); /* myFunc is a reference to the instance of the function displayName created when makeFunc is run. 
+The instance of displayName maintains a reference to its lexical environment, within which the variable name exists. 
+For this reason, when myFunc is invoked, the variable name remains available for use and "Mozilla" is passed to console.log.*/
+
+myFunc(); // "Mozilla" is printed to the console, the value of name.
+
+function Birdy() { // A Birdy constructor private variable
+    let hatchedEgg = 10; // private variable and can only be accessed by public methods below.
+    this.getHatchedEggCount = function() { // publicly available method that a bird object can use
+      return hatchedEgg; // returns value of private variable
+    };
+  }
+let ducky = new Birdy(); // creates a new instance of Birdy
