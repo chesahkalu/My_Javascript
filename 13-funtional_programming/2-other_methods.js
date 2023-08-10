@@ -99,5 +99,61 @@ Array.prototype.myFilter = function(callback) { //This is a method that is assig
     const array4 = array2.concat(array3);
     console.log(array4); // expected output: Array ["a", "b", "c", "d", "e", "f"]
 
-   
+    // Sort method : The sort method sorts the elements of an array according to the callback function.
 
+    function ascendingOrder(arr) { //This is a function that is assigned the value of the ascendingOrder function with the arr parameter passed in.
+        return arr.sort(function(a, b) { //This is a return statement that returns the value of the arr array with the sort method called on it with the a and b parameters passed in.
+            return a - b; //This is a return statement that returns the value of the a parameter minus the value of the b parameter.
+        });
+    }
+
+    ascendingOrder([1, 5, 2, 3, 4]); //This is a function call that passes the [1, 5, 2, 3, 4] array into the ascendingOrder function.
+
+    function reverseAlpha(arr) { //This is a function that is assigned the value of the reverseAlpha function with the arr parameter passed in.
+        return arr.sort(function(a, b) { //This is a return statement that returns the value of the arr array with the sort method called on it with the a and b parameters passed in.
+            return a === b ? 0 : a < b ? 1 : -1; //This is a return statement that returns the value of the a parameter strictly equal to the value of the b parameter ? 0 : a less than the value of the b parameter ? 1 : -1.
+        });
+    }
+
+    reverseAlpha (['l', 'h', 'z', 'b', 's']); //This is a function call that passes the ['l', 'h', 'z', 'b', 's'] array into the reverseAlpha function. will return ['z', 's', 'l', 'h', 'b']
+
+    // Return a Sorted Array Without Changing the Original Array
+
+var globalArray = [5, 6, 3, 2, 9];
+function nonMutatingSort(arr) { //This is a function that is assigned the value of the nonMutatingSort function with the arr parameter passed in.
+  return [].concat(arr).sort(function(a, b) { //This is a return statement that returns the value of an empty array with the concat method called on it with the arr parameter passed in and the sort method called on it with the a and b parameters passed in.
+    return a - b;
+  });
+}
+nonMutatingSort(globalArray);
+
+    /* . JavaScript's default sorting method is by string Unicode point value, which may return unexpected results. 
+    Therefore, it is encouraged to provide a callback function to specify how to sort the array items. When such a callback function, 
+    normally called compareFunction, is supplied, the array elements are sorted according to the return value of the compareFunction: 
+    If compareFunction(a,b) returns a value less than 0 for two elements a and b, then a will come before b. 
+    If compareFunction(a,b) returns a value greater than 0 for two elements a and b, then b will come before a. 
+    If compareFunction(a,b) returns a value equal to 0 for two elements a and b, then a and b will remain unchanged.*/
+
+
+    // Split method : The split method splits a string into an array of strings. It takes an argument for the delimiter, which can be a character to use to break up the string or a regular expression. 
+    // For example, if the delimiter is a space, you get an array of words, and if the delimiter is an empty string, you get an array of each character in the string.
+
+    
+
+
+    /* Complete the code for the squareList function using any combination of map(), filter(), and reduce(). 
+    The function should return a new array containing the squares of only the positive integers (decimal numbers are not integers) when an array of real numbers is passed to it.
+    An example of an array of real numbers is [-3, 4.8, 5, 3, -3.2].
+
+Note: Your function should not use any kind of for or while loops or the forEach() function: */
+
+const squareList = (arr) => {
+    // Only change code below this line
+    return arr
+            .filter(num => num > 0 && num % parseInt(num) === 0)
+            .map(num => Math.pow(num, 2));
+    // Only change code above this line
+  };
+  
+  const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+  console.log(squaredIntegers);
