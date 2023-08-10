@@ -99,7 +99,5 @@ Array.prototype.myFilter = function(callback) { //This is a method that is assig
     const array4 = array2.concat(array3);
     console.log(array4); // expected output: Array ["a", "b", "c", "d", "e", "f"]
 
-    // Recude method : The reduce method iterates over each item in an array and returns a single value (i.e. string, number, object, array). This is achieved via a callback function that is called on each iteration.
+   
 
-    const array5 = [1, 2, 3, 4, 5];
-    
