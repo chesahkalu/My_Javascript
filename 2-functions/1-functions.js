@@ -9,7 +9,7 @@ function sayHello() {
 sayHello(); // prints Hello
 
 // This is a function expression ; the function is stored in a variable and can be treated like any other value. This has some subtle differences in how the code is handled by the JavaScript engine.
-const sayHello = function() {
+const sayHello2 = function() {
     console.log("Hello");
     }
 // Calling a function expression  
@@ -52,7 +52,7 @@ function myTest() {
 }
 
 myTest();
-console.log(loc);
+// console.log(loc);
 //The myTest() function call will display the string foo in the console. The console.log(loc) line (outside of the myTest function) will throw an error, as loc is not defined outside of the function.
 
 
